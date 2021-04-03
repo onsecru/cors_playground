@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <meta charset="UTF-8">
+      <style>
+      .cred {
+        border: 2px solid black;
+        margin: auto;
+        padding: 20px;
+        width: 220px;
+      }
+      .p1 {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .js {
+         font-family: "Lucida Console", "Courier New", monospace;
+      }
+      </style>
+    </head>
+    <body>
+      <h2 style="text-align:center">CORS Playground</h2>
+      <h3 style="text-align:left">Description</h3>
+      <p>
+        CORS playground provides a simple web application that you can utilise to enhance your comprehension of Cross Origin Resource Sharing. By default, it comes with CORS configured in a very unsafe way and could be easily exploited from different origins.
+        <br><br>To make the most out of the CORS playground application, you are highly encouraged to play with the CORS settings and the session's cookie attributes both within the application code as well as different origin values.
+        This cannot be stressed enough, changing the settings mentioned, testing them with different browsers and seeing how both CORS and the session's cookie behave under different configurations 
+        will increase your knowledge of these two critical components of web application security
+      </p>
+      <h3 style="text-align:left">Default settings</h3>
+      <p>CORS playground runs over https and listens on port number 5555</p>
+      <h3 style="text-align:left">URLs/endpoints</h3>
+      <div class="js">
+      <ul>
+        <li>POST /login.html</li>
+        <li>GET /main_page.html</li>
+        <li>GET /logout</li>
+        <li>GET /api/v2/accounts</li>
+        <li>GET /api/v1/accounts</li>
+      </ul>
+    </div>
+      <h3 style="text-align:left">Example</h3>
+      The following is an example of running CORS playground on your local machine.<br><br>
+      1. Add the following entries to the file /etc/hosts (remove the comments). You could use all these domains to test different values of the domain and SameSite cookie attribute.<br><br>
+      <div class="js">
+      &emsp;127.0.0.1 playground.cors.test&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;## Domain for the CORS playground application itself.<br>
+      &emsp;127.0.0.1 project.cors.test&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;## Same level domain as playground.cors.test.<br>
+      &emsp;127.0.0.1 pts.playground.cors.test&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;## Subdomain of playground.cors.test<br>
+      &emsp;127.0.0.1 pts.playground.cors.test.com.au&emsp;&emsp;&emsp;&emsp;## domain .com.au<br>
+      &emsp;127.0.0.1 cors.test&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;## parent domain of playground.cors.test<br>
+      &emsp;127.0.0.1 another.domain.com&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;## A totally different domain<br><br>
+    </div>
+      2. Run CORS playground with the command <strong>nodejs app.js</strong> then open it up on a browser as https://playground.cors.test:5555/ and log in.<br>
+      3. Run an Apache web server over TLS.<br>
+      4. Paste the following HTML code into a file named cors_attack.html and saved it on your apache webroot which by default is: /var/www/html/<br><br>
+      <div class="js">
+      &#x3c;&#x21;&#x44;&#x4f;&#x43;&#x54;&#x59;&#x50;&#x45;&#x20;&#x68;&#x74;&#x6d;&#x6c;&#x3e;<br>
+      &#x3c;&#x68;&#x74;&#x6d;&#x6c;&#x3e;<br>
+      &#x3c;&#x68;&#x65;&#x61;&#x64;&#x3e;&#x3c;&#x6d;&#x65;&#x74;&#x61;&#x20;&#x63;&#x68;&#x61;&#x72;&#x73;&#x65;&#x74;&#x3d;&#x22;&#x55;&#x54;&#x46;&#x2d;&#x38;&#x22;&#x3e;&#x3c;&#x2f;&#x68;&#x65;&#x61;&#x64;&#x3e;<br>
+      &#x3c;&#x62;&#x6f;&#x64;&#x79;&#x3e;<br>
+      &#x3c;&#x73;&#x63;&#x72;&#x69;&#x70;&#x74;&#x3e;<br>
+      &emsp;&#x76;&#x61;&#x72;&#x20;&#x78;&#x68;&#x72;&#x20;&#x3d;&#x20;&#x6e;&#x65;&#x77;&#x20;&#x58;&#x4d;&#x4c;&#x48;&#x74;&#x74;&#x70;&#x52;&#x65;&#x71;&#x75;&#x65;&#x73;&#x74;&#x28;&#x29;&#x3b;<br>
+      &emsp;&#x78;&#x68;&#x72;&#x2e;&#x6f;&#x6e;&#x72;&#x65;&#x61;&#x64;&#x79;&#x73;&#x74;&#x61;&#x74;&#x65;&#x63;&#x68;&#x61;&#x6e;&#x67;&#x65;&#x20;&#x3d;&#x20;&#x66;&#x75;&#x6e;&#x63;&#x74;&#x69;&#x6f;&#x6e;&#x28;&#x29;&#x20;&#x7b;<br>
+      &emsp;&emsp;&#x69;&#x66;&#x20;&#x28;&#x78;&#x68;&#x72;&#x2e;&#x72;&#x65;&#x61;&#x64;&#x79;&#x53;&#x74;&#x61;&#x74;&#x65;&#x20;&#x3d;&#x3d;&#x20;&#x58;&#x4d;&#x4c;&#x48;&#x74;&#x74;&#x70;&#x52;&#x65;&#x71;&#x75;&#x65;&#x73;&#x74;&#x2e;&#x44;&#x4f;&#x4e;&#x45;&#x29;&#x20;&#x7b;<br>
+      &emsp;&emsp;&emsp;&#x63;&#x6f;&#x6e;&#x73;&#x6f;&#x6c;&#x65;&#x2e;&#x6c;&#x6f;&#x67;&#x28;&#x78;&#x68;&#x72;&#x2e;&#x72;&#x65;&#x73;&#x70;&#x6f;&#x6e;&#x73;&#x65;&#x29;&#x3b;<br>
+      &emsp;&emsp;&#x7d;<br>
+      &emsp;&#x7d;<br>
+      &emsp;&#x75;&#x72;&#x6c;&#x20;&#x3d;&#x20;&#x27;&#x68;&#x74;&#x74;&#x70;&#x73;&#x3a;&#x2f;&#x2f;&#x70;&#x6c;&#x61;&#x79;&#x67;&#x72;&#x6f;&#x75;&#x6e;&#x64;&#x2e;&#x63;&#x6f;&#x72;&#x73;&#x2e;&#x74;&#x65;&#x73;&#x74;&#x3a;&#x35;&#x35;&#x35;&#x35;&#x2f;&#x61;&#x70;&#x69;&#x2f;&#x61;&#x63;&#x63;&#x6f;&#x75;&#x6e;&#x74;&#x73;&#x27;&#x3b;<br>
+      &emsp;&#x78;&#x68;&#x72;&#x2e;&#x6f;&#x70;&#x65;&#x6e;&#x28;&#x27;&#x47;&#x45;&#x54;&#x27;&#x2c;&#x75;&#x72;&#x6c;&#x2c;&#x74;&#x72;&#x75;&#x65;&#x29;&#x3b;<br>
+      &emsp;&#x78;&#x68;&#x72;&#x2e;&#x73;&#x65;&#x74;&#x52;&#x65;&#x71;&#x75;&#x65;&#x73;&#x74;&#x48;&#x65;&#x61;&#x64;&#x65;&#x72;&#x28;&#x27;&#x43;&#x4f;&#x52;&#x53;&#x2d;&#x70;&#x6c;&#x61;&#x79;&#x67;&#x72;&#x6f;&#x75;&#x6e;&#x64;&#x27;&#x2c;&#x27;&#x50;&#x65;&#x6e;&#x65;&#x74;&#x72;&#x61;&#x74;&#x69;&#x6f;&#x6e;&#x20;&#x54;&#x65;&#x73;&#x74;&#x69;&#x6e;&#x67;&#x20;&#x54;&#x65;&#x61;&#x6d;&#x27;&#x29;&#x3b;<br>
+      &emsp;&#x78;&#x68;&#x72;&#x2e;&#x77;&#x69;&#x74;&#x68;&#x43;&#x72;&#x65;&#x64;&#x65;&#x6e;&#x74;&#x69;&#x61;&#x6c;&#x73;&#x20;&#x3d;&#x20;&#x74;&#x72;&#x75;&#x65;&#x3b;<br>
+      &emsp;&#x78;&#x68;&#x72;&#x2e;&#x73;&#x65;&#x6e;&#x64;&#x28;&#x29;&#x3b;<br>
+      &#x3c;&#x2f;&#x73;&#x63;&#x72;&#x69;&#x70;&#x74;&#x3e;<br>
+      &#x3c;&#x2f;&#x62;&#x6f;&#x64;&#x79;&#x3e;<br>
+      &#x3c;&#x2f;&#x68;&#x74;&#x6d;&#x6c;&#x3e;<br>
+      </div><br>
+      5. Open the following url https://another.domain.com/cors_attack.html on a browser and look that the account information is display on the browser console.<br>
+      6. Use a http proxy such as Burp or the developer tools of the browser to observe the CORS requests/responses.<br> 
+      <h3 style="text-align:left">Jump in</h3>
+      To keep improving your skills and knowledge of CORS you might like to:<br><br>
+      1.- Add/delete/modify the attributes of the cookie generated within this application. Look for the line:<br><br>
+      <div class="js">&emsp;&emsp;res.cookie('session',randomvalue.toString(), { httpOnly: true, secure: true, sameSite: 'None'});</div><br>
+      &emsp;Some setting you could try:<br><br>
+      <div class="js">
+        &emsp;&emsp;res.cookie('session',randomvalue.toString(), {domain: '.playground.cors.test', httpOnly: true, secure: true, sameSite: 'Lax'});<br>
+        &emsp;&emsp;res.cookie('session',randomvalue.toString(), { httpOnly: true, secure: true, sameSite: 'Strict'});<br><br>
+    </div>
+       2.- In the corsHandler function within the code of this applicaiton,  uncomment the the section you'd like to play with and comment the remaining ones.
+      <h3 style="text-align:left">References:</h3>
+      <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS" target="_blank">CORS tutuorial</a> 
+      <a href="https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy" target="_blank">Same Origin Policy tutorial</a>
+      <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies" target="_blank">Cookies tutorial</a>
+      <a href="https://portswigger.net/web-security/cors" target="_blank">portswigger CORS labs</a>
