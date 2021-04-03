@@ -63,7 +63,7 @@ To keep improving your skills and knowledge of CORS you might like to:
 ```node
 res.cookie('session',randomvalue.toString(), { httpOnly: true, secure: true, sameSite: 'None'});
 ```
- Some setting you could try:
+ Some settings you could try:
 ```node
 res.cookie('session',randomvalue.toString(), {domain: '.playground.cors.test', httpOnly: true, secure: true, sameSite: 'Lax'});
 res.cookie('session',randomvalue.toString(), { httpOnly: true, secure: true, sameSite: 'Strict'});
