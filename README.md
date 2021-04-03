@@ -29,7 +29,7 @@ The following is an example of running CORS playground on your local machine.
 127.0.0.1 cors.test                          ## parent domain of playground.cors.test
 127.0.0.1 another.domain.com                 ## A totally different domain
 ```
-2. Run CORS playground with the command `nodejs app.js` then open it up on a browser as `https://playground.cors.test:5555/` and log in.
+2. Run CORS playground with the command `nodejs app.js` (if first time, run the command `npm install` to install the dependencies)then open it up on a browser as `https://playground.cors.test:5555/` and log in.
 3. Run an Apache web server over TLS.
 4. Paste the following HTML code into a file named cors_attack.html (this file is also provided in this repository) and saved it on your apache webroot which by default is: `/var/www/html/`
 
@@ -68,7 +68,7 @@ res.cookie('session',randomvalue.toString(), { httpOnly: true, secure: true, sam
 res.cookie('session',randomvalue.toString(), {domain: '.playground.cors.test', httpOnly: true, secure: true, sameSite: 'Lax'});
 res.cookie('session',randomvalue.toString(), { httpOnly: true, secure: true, sameSite: 'Strict'});
 ```
-2. In the corsHandler function within the code of this applicaiton, uncomment the the section you'd like to play with and comment the remaining ones.
+2. In the corsHandler function within the code of this application, uncomment the the section you'd like to play with and comment the remaining ones.
 ### References:
 1. [CORS tutuorial](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
 2. [Same Origin Policy tutorial](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy)
