@@ -3,7 +3,7 @@
 
 CORS playground provides a simple web application that you can utilise to enhance your comprehension of Cross Origin Resource Sharing. By default, it comes with CORS configured in a very unsafe way and could be easily exploited from different origins.
 
-To make the most out of the CORS playground application, you are highly encouraged to play with the CORS settings and the session's cookie attributes both within the application code as well as different origin values. This cannot be stressed enough, changing the settings mentioned, testing them with different browsers and seeing how both CORS and the session's cookie behave under different configurations will increase your knowledge of these two critical components of web application security.
+To make the most out of the CORS playground application, you are highly encouraged to play with the CORS settings and the session's cookie attributes both within the application code as well as different origin values. This cannot be stressed enough, changing the settings mentioned, testing them with different browsers and seeing how both CORS and the session's cookie behave under different configurations will increase your knowledge of these two critical components of web application security, their common misconfigurations; exploitation and how to secure them properly
 
 ### Default settings
 CORS playground runs over https and listens on port number 5555
