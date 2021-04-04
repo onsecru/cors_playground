@@ -36,7 +36,7 @@ The following is an example of running CORS playground and exploiting CORS misco
 ## A totally different domain
 127.0.0.1 another.domain.com
 ```
-2. Run CORS playground with the command `nodejs app.js` (if running it for first time, first execute the command `npm install` to install the dependencies) then open up a browser to load `https://playground.cors.test:5555/` and log in.
+2. Run CORS playground with the command `nodejs app.js` (if running it for the first time, execute the command `npm install` to install the dependencies) then open up a browser to load `https://playground.cors.test:5555/` and log in.
 3. Run an Apache web server over TLS.
 4. Paste the following HTML code into a file named cors_attack.html (this file is also included in this repository) and save it on your apache webroot which by default is: `/var/www/html/`
 
