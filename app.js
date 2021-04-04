@@ -68,6 +68,9 @@ let corsHandler = (req, res, next) => {
       //Case 5.- Reflects the Origin HTTP request header sent by the client application
       res.set('Access-Control-Allow-Origin', origin_req_header);
       
+      //Case 6.- null origin
+      //res.set('Access-Control-Allow-Origin', 'null');
+      
       // Indicates the browser to send cookies - not valid combination with Access-Control-Allow-Origin: *
       res.set('Access-Control-Allow-Credentials', 'true');
         
