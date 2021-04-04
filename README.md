@@ -21,7 +21,7 @@ GET /api/v1/accounts
 ### Example
 The following is an example of running CORS playground and exploiting CORS misconfigurations from your local machine.
 
-1. Add the following entries to the file /etc/hosts (remove the comments). You could use all these domains to test different values of the domain and SameSite cookie attribute.
+1. Add the following entries to the file /etc/hosts. You could use all these domains to test different values of the domain and SameSite cookie attribute.
 ```bash
 ## Domain for the CORS playground application itself.
 127.0.0.1 playground.cors.test
