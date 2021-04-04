@@ -3,7 +3,8 @@
 
 CORS playground provides a simple web application that you can utilise to enhance your comprehension of Cross Origin Resource Sharing. By default, it comes with CORS configured in a very unsafe way and could be easily exploited from different origins.
 
-To make the most out of the CORS playground application, you are highly encouraged to play with the CORS settings and the session's cookie attributes both within the application code as well as different origin values. This cannot be stressed enough, changing the settings mentioned, testing them with different browsers and seeing how both CORS and the session's cookie behave under different configurations will increase your knowledge of these two critical components of web application security, their common misconfigurations; exploitation and how to secure them properly
+Observing how both CORS and the session's cookie behave under different configurations will greatly increase your knowledge of these two 
+critical components of web application security, their common misconfigurations; exploitation and how to secure them properly.
 
 ### Default settings
 CORS playground runs over https and listens on port number 5555
@@ -18,20 +19,26 @@ GET /api/v1/accounts
 ```
 
 ### Example
-The following is an example of running CORS playground on your local machine.
+The following is an example of running CORS playground and exploiting CORS misconfigurations from your local machine.
 
 1. Add the following entries to the file /etc/hosts (remove the comments). You could use all these domains to test different values of the domain and SameSite cookie attribute.
 ```bash
-127.0.0.1 playground.cors.test               ## Domain for the CORS playground application itself.
-127.0.0.1 project.cors.test                  ## Same level domain as playground.cors.test.
-127.0.0.1 pts.playground.cors.test           ## Subdomain of playground.cors.test
-127.0.0.1 pts.playground.cors.test.com.au    ## domain .com.au
-127.0.0.1 cors.test                          ## parent domain of playground.cors.test
-127.0.0.1 another.domain.com                 ## A totally different domain
+## Domain for the CORS playground application itself.
+127.0.0.1 playground.cors.test
+## Same level domain as playground.cors.test.
+127.0.0.1 project.cors.test
+## Subdomain of playground.cors.test
+127.0.0.1 pts.playground.cors.test
+## parent domain .com.au
+127.0.0.1 pts.playground.cors.test.com.au
+## parent domain of playground.cors.test
+127.0.0.1 cors.test                
+## A totally different domain
+127.0.0.1 another.domain.com
 ```
-2. Run CORS playground with the command `nodejs app.js` (if first time, run the command `npm install` to install the dependencies) then open it up on a browser as `https://playground.cors.test:5555/` and log in.
+2. Run CORS playground with the command `nodejs app.js` (if running it for first time, first execute the command `npm install` to install the dependencies) then open up a browser to load `https://playground.cors.test:5555/` and log in.
 3. Run an Apache web server over TLS.
-4. Paste the following HTML code into a file named cors_attack.html (this file is also provided in this repository) and saved it on your apache webroot which by default is: `/var/www/html/`
+4. Paste the following HTML code into a file named cors_attack.html (this file is also included in this repository) and save it on your apache webroot which by default is: `/var/www/html/`
 
 ```html
 <!DOCTYPE html>
@@ -54,10 +61,9 @@ The following is an example of running CORS playground on your local machine.
 </body>
 </html>
 ```
-5. Open the following url `https://another.domain.com/cors_attack.html` on a browser and look that the account information is display on the browser console.
+5. Load the following url `https://another.domain.com/cors_attack.html` on a browser, the account information will be displayed on the browser console.
 6. Use a http proxy such as Burp or the developer tools of the browser to observe the CORS requests/responses.
 ### Jump in
-To keep improving your skills and knowledge of CORS you might like to:
 
 1. Add/delete/modify the attributes of the cookie generated within this application. Look for the line:
 ```node
