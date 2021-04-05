@@ -79,4 +79,4 @@ res.cookie('session',randomvalue.toString(), { httpOnly: true, secure: true, sam
 1. [CORS tutuorial](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
 2. [Same Origin Policy tutorial](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy)
 3. [Cookies tutorial](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies)
-4. [portswigger CORS labs](https://portswigger.net/web-security/cors)
+4. [Portswigger Academy: CORS labs](https://portswigger.net/web-security/cors)
